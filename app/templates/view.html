@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="card" class="m-5 p-2">
-    <h5 class="card-title">{{ city.fldName }} - {{ city.fldAbbreviation }}</h5>
+    <h5 class="card-title" style="text-align: -webkit-left; padding-left: 20px; padding-top: 20px">{{ city.fldName }} - {{ city.fldAbbreviation }}</h5>
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item">{{ city.fldLat }}</li>
@@ -12,10 +12,12 @@
         <li class="list-group-item">{{ city.fldPopulation }}</li>
     </ul>
     <div class="card-body">
-        <a href="/edit/{{city.id}}" class="card-link btn btn-primary">edit</a>
+        <a href="/edit/{{city.id}}" class="card-link btn btn-primary">Edit</a>
     </div>
 </div>
-<form action="/delete/{{city.id}}" method="post"><button type="submit" class="btn btn-danger">Save</button></form>
+<br>
+<form action="/delete/{{city.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
 
 
 {% endblock %}
+
