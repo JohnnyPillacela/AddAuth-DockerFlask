@@ -1,3 +1,4 @@
+
 {% extends "layout.html" %}
 {% block content %}
 <form action="/cities/new" method="POST">
@@ -8,7 +9,7 @@
         </div>
         <div class="col">
             <label for="fldAbbreviation">City Abbreviation</label>
-            <input id="fldAbbreviation" type="text" class="form-control" placeholder="City Abbreviation"
+            <input id="fldAbbreviation" t ype="text" class="form-control" placeholder="City Abbreviation"
                    name="fldAbbreviation">
         </div>
         <div class="col">
@@ -39,9 +40,8 @@
             <input id="fldPopulation" type="text" class="form-control" placeholder="Population" name="fldPopulation">
         </div>
     </div>
-    <button type="submit" class="btn btn-success">Success</button>
+    <button type="submit" class="btn btn-success">Create</button>
 
 </form>
 
 {% endblock %}
-
