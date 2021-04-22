@@ -1,4 +1,5 @@
 # Adding Authentication
-## Project Description
-Adding Authentication to Docker Flask SQL Project
+# Part 3
 
+#### Installing flask-wtf
+![Flask-WTF](screenshots/installing_flask_wtf.PNG)
