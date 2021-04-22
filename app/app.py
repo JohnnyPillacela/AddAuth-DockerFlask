@@ -18,6 +18,18 @@ app.config['MYSQL_DATABASE_DB'] = 'citiesData'
 mysql.init_app(app)
 
 
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    """Standard `contact` form."""
+    form = ContactForm()
+    if form.validate_on_submit():
+        return redirect(url_for("success"))
+    return render_template(
+        "contact.jinja2",
+        form=form,
+        template="form-template"
+    )
+
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': 'Johnny Pillacela'}
