@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 {% block content %}
 <table class="table">
@@ -16,7 +15,7 @@
     <tbody>
     {% for city in cities %}
     <tr>
-        <td>{{ city.fldName }}</td>
+        <td><a href="view/{{city.id}}">{{ city.fldName }}</a></td>
         <td>{{ city.fldLat }}</td>
         <td>{{ city.fldLong }}</td>
         <td>{{ city.fldCountry }}</td>
