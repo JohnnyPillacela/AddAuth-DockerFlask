@@ -1,4 +1,5 @@
 import simplejson as json
+from flask import current_app as app
 from flask import Flask, request, Response, redirect, make_response
 from flask import render_template, url_for
 from flaskext.mysql import MySQL
@@ -6,7 +7,7 @@ from pymysql.cursors import DictCursor
 from forms import ContactForm, SignupForm
 import config
 
-
+'''
 app = Flask(__name__, instance_relative_config=False)
 app.config.from_object("config.Config")
 app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
@@ -21,7 +22,9 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'citiesData'
 mysql.init_app(app)
-
+'''
+mysql = MySQL(cursorclass=DictCursor)
+mysql.init_app(app)
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -199,5 +202,5 @@ def api_delete(city_id) -> str:
     return resp
 
 
-if __name__ == '__main__':
-   app.run(host='0.0.0.0', debug=True)
+#if __name__ == '__main__':
+#   app.run(host='0.0.0.0', debug=True)
