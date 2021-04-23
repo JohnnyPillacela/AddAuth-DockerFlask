@@ -3,6 +3,14 @@ from flask import Flask
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 
+from flask_login import LoginManager
+from flask_sqlalchemy import SQLAlchemy
+from ddtrace import patch_all
+
+
+patch_all()
+db = SQLAlchemy()
+login_manager = LoginManager()
 
 def create_app():
     """Construct the core flask_wtforms_tutorial."""
