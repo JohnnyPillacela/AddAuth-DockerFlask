@@ -6,6 +6,7 @@ from pymysql.cursors import DictCursor
 from forms import ContactForm, SignupForm
 import config
 
+
 app = Flask(__name__, instance_relative_config=False)
 app.config.from_object("config.Config")
 app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
@@ -199,4 +200,4 @@ def api_delete(city_id) -> str:
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+   app.run(host='0.0.0.0', debug=True)
