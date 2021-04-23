@@ -1,6 +1,6 @@
 from typing import List, Dict
 import simplejson as json
-from flask import Flask, request, Response, redirect
+from flask import Flask, request, Response, redirect, make_response
 from flask import render_template, url_for
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
@@ -48,6 +48,14 @@ def signup():
         title="Signup Form"
     )
 
+@app.route("/api/v2/test_response")
+def users():
+    headers = {"Content-Type": "application/json"}
+    return make_response(
+        'Part 4 - Testing Response Worked!',
+        200,
+        #headers=headers
+    )
 
 @app.route('/', methods=['GET'])
 def index():
