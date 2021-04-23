@@ -43,5 +43,16 @@
 #### Blueprints
 #### created my own blueprint based of previous hw application
 
+# Part 8
+
+#### Frontend - Stylesheets Flask
+
+#### Before CSS
+![before css](screenshots/contact-before.PNG)
+
+#### After CSS
+![after css](screenshots/contact-after.PNG)
+
+
 
 
