@@ -70,7 +70,6 @@ def bad_request():
         400
     )
 
-
 @app.errorhandler(500)
 def server_error():
     """Internal server error."""
