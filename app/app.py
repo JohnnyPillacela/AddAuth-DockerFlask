@@ -1,11 +1,18 @@
 from typing import List, Dict
 import simplejson as json
 from flask import Flask, request, Response, redirect
-from flask import render_template
+from flask import render_template, url_for
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
+from flask_wtf import FlaskForm
+from forms import ContactForm, SignupForm
+import os
 
-app = Flask(__name__)
+
+app = Flask(__name__, instance_relative_config=False)
+#app.config.from_object('config.Config')
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 mysql = MySQL(cursorclass=DictCursor)
 
 app.config['MYSQL_DATABASE_HOST'] = 'db'
@@ -14,6 +21,32 @@ app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'citiesData'
 mysql.init_app(app)
+
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    #"""Standard `contact` form."""
+    form = ContactForm()
+    if form.validate_on_submit():
+        return redirect(url_for("success"))
+    return render_template(
+        "contact.html",
+        form=form,
+        template="form-template"
+    )
+
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    """User sign-up form for account creation."""
+    form = SignupForm()
+    if form.validate_on_submit():
+        return redirect(url_for("success"))
+    return render_template(
+        "signup.html",
+        form=form,
+        template="form-template",
+        title="Signup Form"
+    )
 
 
 @app.route('/', methods=['GET'])
