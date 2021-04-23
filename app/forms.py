@@ -72,3 +72,16 @@ class SignupForm(FlaskForm):
     birthday = DateField('Your Birthday')
     recaptcha = RecaptchaField()
     submit = SubmitField('Submit')
+
+
+class LoginForm(FlaskForm):
+    """User Log-in Form."""
+    email = StringField(
+        'Email',
+        validators=[
+            DataRequired(),
+            Email(message='Enter a valid email.')
+        ]
+    )
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Log In')
