@@ -1,18 +1,17 @@
-from typing import List, Dict
 import simplejson as json
 from flask import Flask, request, Response, redirect, make_response
 from flask import render_template, url_for
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-from flask_wtf import FlaskForm
 from forms import ContactForm, SignupForm
-import os
-
+import config
 
 app = Flask(__name__, instance_relative_config=False)
-#app.config.from_object('config.Config')
-SECRET_KEY = os.urandom(32)
-app.config['SECRET_KEY'] = SECRET_KEY
+app.config.from_object("config.Config")
+app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
+app.config["RECAPTCHA_PARAMETERS"] = {"size": "100%"}
+#SECRET_KEY = os.urandom(32)
+#app.config['SECRET_KEY'] = SECRET_KEY
 mysql = MySQL(cursorclass=DictCursor)
 
 app.config['MYSQL_DATABASE_HOST'] = 'db'
