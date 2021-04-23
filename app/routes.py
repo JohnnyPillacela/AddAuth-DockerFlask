@@ -6,6 +6,10 @@ from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 from forms import ContactForm, SignupForm
 import config
+from flask import Blueprint
+from flask_login import current_user, login_required, logout_user
+from __init__ import mysql
+
 
 '''
 app = Flask(__name__, instance_relative_config=False)
@@ -23,8 +27,8 @@ app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'citiesData'
 mysql.init_app(app)
 '''
-mysql = MySQL(cursorclass=DictCursor)
-mysql.init_app(app)
+#mysql = MySQL(cursorclass=DictCursor)
+#mysql.init_app(app)
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -80,6 +84,34 @@ def server_error():
         render_template("500.html"),
         500
     )
+
+# Blueprint Configuration
+main_bp = Blueprint(
+    'main_bp', __name__,
+    template_folder='templates',
+    static_folder='static'
+)
+
+
+@main_bp.route('/', methods=['GET'])
+@login_required
+def dashboard():
+    """Logged-in User Dashboard."""
+    return render_template(
+        'dashboard.jinja2',
+        title='Flask-Login Tutorial.',
+        template='dashboard-template',
+        current_user=current_user,
+        body="You are now logged in!"
+    )
+
+
+@main_bp.route("/logout")
+@login_required
+def logout():
+    """User log-out logic."""
+    logout_user()
+    return redirect(url_for('auth_bp.login'))
 
 @app.route('/', methods=['GET'])
 def index():
