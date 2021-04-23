@@ -21,6 +21,6 @@ def create_app():
 
     with app.app_context():
         # Import
-        import app
+        import routes
 
         return app
