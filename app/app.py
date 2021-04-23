@@ -35,6 +35,20 @@ def contact():
         template="form-template"
     )
 
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    """User sign-up form for account creation."""
+    form = SignupForm()
+    if form.validate_on_submit():
+        return redirect(url_for("success"))
+    return render_template(
+        "signup.html",
+        form=form,
+        template="form-template",
+        title="Signup Form"
+    )
+
+
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': 'Johnny Pillacela'}
