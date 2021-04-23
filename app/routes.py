@@ -276,5 +276,6 @@ def logout():
     """User log-out logic."""
     logout_user()
     return redirect(url_for('auth_bp.login'))
+
 #if __name__ == '__main__':
 #   app.run(host='0.0.0.0', debug=True)
