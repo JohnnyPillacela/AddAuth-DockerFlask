@@ -37,7 +37,7 @@ def signup():
             return redirect(url_for('main_bp.dashboard'))
         flash('A user already exists with that email address.')
     return render_template(
-        'signup.html',
+        'signup.jinja2',
         title='Create an Account.',
         form=form,
         template='signup-page',
@@ -67,7 +67,7 @@ def login():
         flash('Invalid username/password combination')
         return redirect(url_for('auth_bp.login'))
     return render_template(
-        'login.html',
+        'login.jinja2',
         form=form,
         title='Log in.',
         template='login-page',

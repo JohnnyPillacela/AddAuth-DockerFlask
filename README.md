@@ -1,4 +1,5 @@
-# Adding Authentication
+# Adding Authentication Homework
+##### steps 1-11 from the article
 
 # Part 1
 
@@ -62,6 +63,12 @@
 
 #### Login Database
 ![login](screenshots/login.PNG)
+
+# Part 11
+
+#### Session Section
+#### will keep users logged in
+![session](screenshots/session.PNG)
 
 
 
