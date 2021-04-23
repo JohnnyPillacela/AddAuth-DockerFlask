@@ -4,10 +4,15 @@ from flask import Flask, request, Response, redirect
 from flask import render_template, url_for
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-from forms import ContactForm
+from flask_wtf import FlaskForm
+from forms import ContactForm, SignupForm
+import os
+
 
 app = Flask(__name__, instance_relative_config=False)
 #app.config.from_object('config.Config')
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 mysql = MySQL(cursorclass=DictCursor)
 
 app.config['MYSQL_DATABASE_HOST'] = 'db'
@@ -20,12 +25,12 @@ mysql.init_app(app)
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    """Standard `contact` form."""
+    #"""Standard `contact` form."""
     form = ContactForm()
     if form.validate_on_submit():
         return redirect(url_for("success"))
     return render_template(
-        "contact.jinja2",
+        "contact.html",
         form=form,
         template="form-template"
     )
