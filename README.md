@@ -1,4 +1,5 @@
-# Adding Authentication
+# Adding Authentication Homework
+##### steps 1-11 from the article
 
 # Part 1
 
