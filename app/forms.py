@@ -7,7 +7,6 @@ from wtforms import (
     PasswordField,
     DateField,
     SelectField,
-    TextField
 )
 from wtforms.validators import (
     DataRequired,
@@ -17,29 +16,21 @@ from wtforms.validators import (
     URL
 )
 
+
 class ContactForm(FlaskForm):
     """Contact form."""
-    name = StringField(
-        'Name',
-        [DataRequired()]
-    )
+
+    name = StringField("Name", [DataRequired()])
     email = StringField(
-        'Email',
-        [
-            Email(message=('Not a valid email address.')),
-            DataRequired()
-        ]
+        "Email",
+        [Email(message="Not a valid email address."), DataRequired()]
     )
-    body = TextField(
-        'Message',
-        [
-            DataRequired(),
-            Length(min=4,
-            message=('Your message is too short.'))
-        ]
+    body = TextAreaField(
+        "Message",
+        [DataRequired(), Length(min=4, message="Your message is too short.")]
     )
-    recaptcha = RecaptchaField()
-    submit = SubmitField('Submit')
+    submit = SubmitField("Submit")
+
 
 class SignupForm(FlaskForm):
     """Sign up for a user account."""
