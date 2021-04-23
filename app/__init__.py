@@ -20,7 +20,7 @@ def create_app():
     mysql.init_app(app)
 
     with app.app_context():
-        # Import parts of our flask_wtforms_tutorial
-        from . import app
+        # Import
+        import app
 
         return app

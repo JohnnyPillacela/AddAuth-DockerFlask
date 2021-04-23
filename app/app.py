@@ -7,20 +7,20 @@ from forms import ContactForm, SignupForm
 import config
 
 
-#app = Flask(__name__, instance_relative_config=False)
-#app.config.from_object("config.Config")
-#app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
-#app.config["RECAPTCHA_PARAMETERS"] = {"size": "100%"}
+app = Flask(__name__, instance_relative_config=False)
+app.config.from_object("config.Config")
+app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
+app.config["RECAPTCHA_PARAMETERS"] = {"size": "100%"}
 #SECRET_KEY = os.urandom(32)
 #app.config['SECRET_KEY'] = SECRET_KEY
-#mysql = MySQL(cursorclass=DictCursor)
+mysql = MySQL(cursorclass=DictCursor)
 
-#app.config['MYSQL_DATABASE_HOST'] = 'db'
-#app.config['MYSQL_DATABASE_USER'] = 'root'
-#app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-#app.config['MYSQL_DATABASE_PORT'] = 3306
-#app.config['MYSQL_DATABASE_DB'] = 'citiesData'
-#mysql.init_app(app)
+app.config['MYSQL_DATABASE_HOST'] = 'db'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
+app.config['MYSQL_DATABASE_PORT'] = 3306
+app.config['MYSQL_DATABASE_DB'] = 'citiesData'
+mysql.init_app(app)
 
 
 @app.route("/contact", methods=["GET", "POST"])
@@ -199,5 +199,5 @@ def api_delete(city_id) -> str:
     return resp
 
 
-#if __name__ == '__main__':
-#   app.run(host='0.0.0.0', debug=True)
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', debug=True)
