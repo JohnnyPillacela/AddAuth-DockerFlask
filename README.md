@@ -1,4 +1,5 @@
 # Adding Authentication
+
 # Part 3
 
 #### Installing flask-wtf
@@ -6,3 +7,12 @@
 
 #### Contact Form on Webpage
 ![contact form](screenshots/contact-webform.PNG)
+
+
+# Part 4
+
+#### Testing Reponses
+![reponse](screenshots/test_response.PNG)
+
+#### Error Handling
+![Error Handling](screenshots/error_handle.PNG)
