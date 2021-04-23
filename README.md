@@ -1,5 +1,15 @@
 # Adding Authentication
 
+# Part 1
+
+#### Creating Flask application
+#### (just used the existing Flask-Docker Application created for the previous homework)
+
+# Part 2 
+
+#### Rendering Pages in Flask
+#### (used same html files for this step too)
+
 # Part 3
 
 #### Installing flask-wtf
@@ -27,6 +37,11 @@
 
 #### Separating Innit
 ![seperate init](screenshots/init.PNG)
+
+# Part 7
+
+#### Blueprints
+#### created my own blueprint based of previous hw application
 
 
 
