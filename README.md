@@ -23,3 +23,10 @@
 #### Configuration For Key
 ![config](screenshots/config.PNG)
 
+# Part 6
+
+#### Separating Innit
+![seperate init](screenshots/init.PNG)
+
+
+
