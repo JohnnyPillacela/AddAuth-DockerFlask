@@ -21,6 +21,10 @@ class Config:
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    # Flask-Session
+    SESSION_TYPE = environ.get('SESSION_TYPE')
+    SESSION_REDIS = redis.from_url(environ.get('SESSION_REDIS'))
+
     # Flask-Assets
     LESS_BIN = environ.get('LESS_BIN')
     ASSETS_DEBUG = environ.get('ASSETS_DEBUG')

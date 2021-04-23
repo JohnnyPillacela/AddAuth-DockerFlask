@@ -6,12 +6,15 @@ from pymysql.cursors import DictCursor
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from ddtrace import patch_all
+from flask_session import Session
 
 
 patch_all()
 db = SQLAlchemy()
 login_manager = LoginManager()
 mysql = MySQL(cursorclass=DictCursor)
+sess = Session()
+
 
 def create_app():
     """Construct the core flask_wtforms_tutorial."""
@@ -26,7 +29,7 @@ def create_app():
     app.config['MYSQL_DATABASE_PORT'] = 3306
     app.config['MYSQL_DATABASE_DB'] = 'citiesData'
     mysql.init_app(app)
-
+    sess.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
 
