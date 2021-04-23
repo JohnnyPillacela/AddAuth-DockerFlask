@@ -57,6 +57,11 @@ def users():
         #headers=headers
     )
 
+@app.errorhandler(404)
+def not_found():
+    """Page not found."""
+    return make_response(render_template("404.html"), 404)
+
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': 'Johnny Pillacela'}
