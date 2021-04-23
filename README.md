@@ -28,5 +28,10 @@
 #### Separating Innit
 ![seperate init](screenshots/init.PNG)
 
+# Part 7
+
+#### Blueprints
+
+
 
 
