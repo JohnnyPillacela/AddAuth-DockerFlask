@@ -55,7 +55,7 @@
 
 # Part 9
 
-#### SQL alchemy
+#### SQL Alchemy
 #### used sql alchemy to make login form and keep track of users
 
 
